@@ -5,6 +5,31 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var example = {
+    title: 'EXAMPLE HTML IMAD COURSE',
+    content: `<p>
+                My name is Himabindu 
+                student in cmrit 
+                3rd b.tech cse
+            </p>`
+};
+
+var htmlTemplate = `<html>
+    <title> ${title} </title>
+    <body>
+        <div><a href='/'>HOME</a></div>
+        <hr>
+        <div>
+               ${content}
+        </div>
+    </body>
+</html>
+
+
+
+
+`
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
